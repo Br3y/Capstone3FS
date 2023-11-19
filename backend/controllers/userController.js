@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs'
 import createToken from '../utils/createToken.js'
 
 const createUser = asyncHandler(async (req, res) => {
-    const { username, email, password } = req.body
+    const { username, email, password, isAdmin } = req.body
 
     if (!username || !email || !password) {
         throw new Error('Please fill all the inputs')
@@ -23,6 +23,7 @@ const createUser = asyncHandler(async (req, res) => {
         username,
         email,
         password: hashedPassword,
+        isAdmin: isAdmin
     })
 
     try {
@@ -58,7 +59,9 @@ const loginUser = asyncHandler(async (req, res) => {
                 email: existingUser.email,
                 isAdmin: existingUser.isAdmin
             })
-            return
+        } else {
+            res.status(400)
+            throw new Error("Wrong Password")
         }
     }
 })
