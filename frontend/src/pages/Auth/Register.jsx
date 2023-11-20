@@ -29,105 +29,106 @@ const Register = () => {
   }, [navigate, redirect, userInfo]);
 
   const submitHandler = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if(password !== confirmPassword){
-      toast.error('Password and Confim Password do not match')
+    if (password !== confirmPassword) {
+      toast.error("Password and Confim Password do not match");
     } else {
-      try{
-        const res = await register({username, email, password}).unwrap()
-        dispatch(setCredientials({...res}))
-        navigate(redirect)
-        toast.success('User successfully registered')
-      } catch(error){
-        console.log(error)
-        toast.error(error.data.message)
+      try {
+        const res = await register({ username, email, password }).unwrap();
+        dispatch(setCredientials({ ...res }));
+        navigate(redirect);
+        toast.success("User successfully registered");
+      } catch (error) {
+        console.log(error);
+        toast.error(error.data.message);
       }
     }
-  }
+  };
   return (
-    <section className="pl-[10rem] flex flex-wrap">
-      <div className="mr-[4rem] mt-[5rem]">
-        <h1 className="text-2xl font-semibold mb-4">Register</h1>
+    <div className="flex items-center justify-center">
+      <section className="pl-[10rem] flex flex-wrap">
+        <div className="mr-[4rem] mt-[5rem]">
+          <h1 className="text-2xl font-semibold mb-4">Register</h1>
 
-        <form onSubmit={submitHandler} className="container w-[40rem]">
-          <div className="my-[2rem]">
-            <label htmlFor="name" className="block text-sm font-medium">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="mt-1 p-2 border border-slate-600 rounded w-full"
-              value={username}
-              onChange={(e) => setUserName(e.target.value)}
-            />
-          </div>
-          <div className="my-[2rem]">
-            <label htmlFor="email" className="block text-sm font-medium">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="mt-1 p-2 border border-slate-600 rounded w-full"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="my-[2rem]">
-            <label htmlFor="password" className="block text-sm font-medium">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="mt-1 p-2 border border-slate-600 rounded w-full"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="my-[2rem]">
-            <label
-              htmlFor="confirmPassword"
-              className="block text-sm font-medium"
+          <form onSubmit={submitHandler} className="container w-[40rem]">
+            <div className="my-[2rem]">
+              <label htmlFor="name" className="block text-sm font-medium">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                className="mt-1 p-2 border border-slate-600 rounded w-full"
+                value={username}
+                onChange={(e) => setUserName(e.target.value)}
+              />
+            </div>
+            <div className="my-[2rem]">
+              <label htmlFor="email" className="block text-sm font-medium">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="mt-1 p-2 border border-slate-600 rounded w-full"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="my-[2rem]">
+              <label htmlFor="password" className="block text-sm font-medium">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                className="mt-1 p-2 border border-slate-600 rounded w-full"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className="my-[2rem]">
+              <label
+                htmlFor="confirmPassword"
+                className="block text-sm font-medium"
+              >
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                id="confirmPassword"
+                className="mt-1 p-2 border border-slate-600 rounded w-full"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+
+            <button
+              disabled={isLoading}
+              className="bg-pink-500 text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
+              type="submit"
             >
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              className="mt-1 p-2 border border-slate-600 rounded w-full"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
+              {isLoading ? "Registering..." : "Register"}
+            </button>
+
+            {isLoading && <Loader />}
+          </form>
+
+          <div className="mt-4">
+            <p>
+              Already have an account? {" "}
+              <Link
+                to={redirect ? `/login?redirect=${redirect}` : "/login"}
+                className="text-pink-500 hover:underline"
+              >
+                Login
+              </Link>
+            </p>
           </div>
-
-          <button
-            disabled={isLoading}
-            className="bg-pink-500 text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
-            type="submit"
-          >
-            {isLoading ? "Registering..." : "Register"}
-          </button>
-
-          {isLoading && <Loader />}
-        </form>
-
-        <div className="mt-4">
-          <p>
-            Already have an account? {" "}
-            <Link
-              to={redirect ? `/login?redirect=${redirect}` : "/login"}
-              className="text-pink-500 hover:underline"
-            >
-              Login
-            </Link>
-          </p>
         </div>
-
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
