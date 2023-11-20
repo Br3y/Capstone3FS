@@ -12,3 +12,6 @@
 - to run frontend: npm run frontend
 - to run backend: npm run backend
 - to run both: npm run dev
+
+
+..
