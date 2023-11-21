@@ -15,26 +15,36 @@ export const userApiSlice = apiSlice.injectEndpoints({
         body: data, // Including the request data in the body
       }),
     }),
-    
+
     logout: builder.mutation({
       query: () => ({
         url: `${USERS_URL}/logout`,
-        method: 'POST'
-      })
+        method: "POST",
+      }),
     }),
 
     register: builder.mutation({
-      query: data => ({
+      query: (data) => ({
         url: `${USERS_URL}/register`,
         method: "POST",
-        body: data
-      })
-    })
+        body: data,
+      }),
+    }),
 
-
-
+    profile: builder.mutation({
+      query: (data) => ({
+        url: `${USERS_URL}/profile`,
+        method: "PUT",
+        body: data,
+      }),
+    }),
   }),
 });
 
 // Extracting the generated hook for the login mutation from the userApiSlice
-export const { useLoginMutation, useLogoutMutation, useRegisterMutation } = userApiSlice;
+export const {
+  useLoginMutation,
+  useLogoutMutation,
+  useRegisterMutation,
+  useProfileMutation,
+} = userApiSlice;
