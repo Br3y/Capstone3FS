@@ -23,6 +23,6 @@ app.use(cookieParser())
 
 app.use('/b6/users', userRoute)
 app.use('/b6/category', categoryRoute)
-app.use('/b6/product', productRoute)
+app.use('/b6/products', productRoute)
 
 app.listen(port, () => console.log(`Server running on port: ${port}`))
