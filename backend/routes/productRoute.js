@@ -22,7 +22,7 @@ router
 
 router
     .route('/:id/reviews')
-    .post(authenticate, authorizeAdmin, checkId, addProductReview)
+    .post(authenticate, checkId, addProductReview)
 
 router
     .route('/top')

@@ -11,6 +11,7 @@ import { apiSlice } from "./api/apiSlice";
 import authReducer from "./features/auth/authSlice";
 
 import favoritesReducer from "../redux/features/favorites/favoriteSlice";
+import CartSliceReducer from "../redux/features/cart/cartSlice"
 import { getFavoritesFromLocalStorage } from "../Utils/localStorage";
 const initialFavorites = getFavoritesFromLocalStorage() || [];
 
@@ -20,6 +21,7 @@ const store = configureStore({
     [apiSlice.reducerPath]: apiSlice.reducer, // Including the API slice reducer under a specific key
     auth: authReducer, // Including the authReducer for handling authentication state
     favorites: favoritesReducer,
+    cart: CartSliceReducer,
   },
 
   preloadedState: {
