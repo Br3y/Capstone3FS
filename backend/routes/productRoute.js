@@ -8,7 +8,10 @@ import {
     removeProduct,
     getAllProducts,
     getProductById,
-    fetchAllProducts
+    fetchAllProducts,
+    addProductReview,
+    fetchTopProducts,
+    fetchNewProducts
 } from '../controllers/productController.js'
 import { authenticate, authorizeAdmin } from "../middleware/authMiddleWare.js";
 import checkId from '../middleware/checkId.js'
@@ -16,6 +19,17 @@ import checkId from '../middleware/checkId.js'
 router
     .route('/fetchAllProducts')
     .get(fetchAllProducts)
+
+router
+    .route('/:id/reviews')
+    .post(authenticate, authorizeAdmin, checkId, addProductReview)
+
+router
+    .route('/top')
+    .get(fetchTopProducts)
+router
+    .route('/new')
+    .get(fetchNewProducts)
 
 router
     .route('/')
