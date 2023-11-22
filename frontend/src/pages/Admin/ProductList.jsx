@@ -1,16 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  useGetProductsQuery,
-  useGetProductByIdQuery,
-  useFetchAllProductsQuery,
-  useGetProductDetailsQuery,
   useCreateProductMutation,
-  useUpdateProductMutation,
-  useDeleteProductMutation,
-  useCreateReviewMutation,
-  useGetTopProductQuery,
-  useGetNewProductQuery,
   useUploadProductImageMutation,
 } from "../../redux/api/productApiSlice";
 import { useFetchCategoriesQuery } from "../../redux/api/categoryApiSlice";
