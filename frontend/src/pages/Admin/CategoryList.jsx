@@ -8,6 +8,7 @@ import {
 import { toast } from "react-toastify";
 import CategoryForm from "../../components/CategoryForm";
 import Modal from "../../components/Modal";
+import AdminMenu from './AdminMenu'
 
 const CategoryList = () => {
   const { data: categories } = useFetchCategoriesQuery();
@@ -89,7 +90,7 @@ const CategoryList = () => {
   };
   return (
     <div className="flex flex-col md:flex-row justify-center ">
-      {/* AdminMenu */}
+      <AdminMenu />
       <div className="md:w-3/4 p-3">
       <h1 className="text-2xl font-semibold mb-4">Manage Categories</h1>
         <CategoryForm 
