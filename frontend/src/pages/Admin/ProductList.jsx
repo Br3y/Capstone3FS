@@ -6,6 +6,7 @@ import {
 } from "../../redux/api/productApiSlice";
 import { useFetchCategoriesQuery } from "../../redux/api/categoryApiSlice";
 import { toast } from "react-toastify";
+import AdminMenu from "./AdminMenu";
 
 const ProductList = () => {
   const [image, setImage] = useState("");
@@ -42,10 +43,9 @@ const ProductList = () => {
       if (data.error) {
         toast.error("Product creation failed.");
       } else {
-        toast.success(`${data.name} is created.`)
-        navigate('/')
+        toast.success(`${data.name} is created.`);
+        navigate("/");
       }
-
     } catch (error) {
       console.error(error);
       toast.error("Product creation failed.");
@@ -69,7 +69,7 @@ const ProductList = () => {
   return (
     <div className="container xl:mx-[9rem] sm:mx-[0]">
       <div className="flex flex-col md:flex-row">
-        {/* Admin Menu */}
+        <AdminMenu />
         <div className="md:w-3/4 p-3">
           <div className="h-12">Create Product </div>
 
@@ -168,6 +168,7 @@ const ProductList = () => {
                   className="p-4 mb-3 w-[34rem] border rounded-lg"
                   onChange={(e) => setCategory(e.target.value)}
                 >
+                  <option>--Pick One--</option>
                   {categories?.map((c) => (
                     <option key={c._id} value={c._id}>
                       {c.name}
