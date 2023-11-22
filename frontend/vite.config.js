@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/b6/": "http://localhost:4006",
+      "/uploads/": "http://localhost:4006"
     }
   },
 })
