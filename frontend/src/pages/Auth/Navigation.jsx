@@ -131,7 +131,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/admin/dashboard"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-100 hover:text-cyan-500"
                   >
                     Dashboard
                   </Link>
@@ -139,7 +139,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/admin/productlist"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-100 hover:text-cyan-500"
                   >
                     Products
                   </Link>
@@ -147,7 +147,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/admin/categorylist"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-100 hover:text-cyan-500"
                   >
                     Category
                   </Link>
@@ -155,7 +155,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/admin/orderlist"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-100 hover:text-cyan-500"
                   >
                     Orders
                   </Link>
@@ -163,7 +163,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/admin/userlist"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-100 hover:text-cyan-500"
                   >
                     Users
                   </Link>
@@ -173,7 +173,7 @@ const Navigation = () => {
             <li>
               <Link
                 to="/profile"
-                className="block px-4 py-2 hover:bg-gray-100"
+                className="block px-4 py-2 hover:bg-gray-100 hover:text-cyan-500"
               >
                 Profile
               </Link>
@@ -181,7 +181,7 @@ const Navigation = () => {
             <li>
               <Link
                 onClick={logoutHandler}
-                className="block px-4 py-2 hover:bg-gray-100"
+                className="block px-4 py-2 hover:bg-gray-100 hover:text-cyan-500"
               >
                 Logout
               </Link>
