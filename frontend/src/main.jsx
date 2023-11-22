@@ -27,7 +27,7 @@ import Home from "./Home.jsx";
 import Favorites from './pages/Products/Favorites.jsx'
 import ProductDetails from "./pages/Products/ProductDetails.jsx";
 import Cart from "./pages/Cart.jsx";
-
+import Shop from "./pages/Shop.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -40,6 +40,7 @@ const router = createBrowserRouter(
         <Route path="favorite" element={<Favorites />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/shop" element={<Shop />} />
       </Route>
 
       {/* Admin */}

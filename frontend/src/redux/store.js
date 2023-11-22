@@ -13,6 +13,7 @@ import authReducer from "./features/auth/authSlice";
 import favoritesReducer from "../redux/features/favorites/favoriteSlice";
 import CartSliceReducer from "../redux/features/cart/cartSlice"
 import { getFavoritesFromLocalStorage } from "../Utils/localStorage";
+import shopReducer from "../redux/features/shop/shopSlice";
 const initialFavorites = getFavoritesFromLocalStorage() || [];
 
 // Creating the Redux store with the configured reducers, middleware, and devTools settings
@@ -22,6 +23,7 @@ const store = configureStore({
     auth: authReducer, // Including the authReducer for handling authentication state
     favorites: favoritesReducer,
     cart: CartSliceReducer,
+    shop: shopReducer,
   },
 
   preloadedState: {
