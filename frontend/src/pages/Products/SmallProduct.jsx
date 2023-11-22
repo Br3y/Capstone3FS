@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import HeartIcon from './HeartIcon'
 
 const SmallProduct = ({ product }) => {
   return (
@@ -9,7 +10,7 @@ const SmallProduct = ({ product }) => {
           alt={product.name}
           className="h-auto rounded"
         />
-        {/* <HeaderIcon product={product} /> */}
+        <HeartIcon product={product} />
         <div className="p-54">
           <Link to={`/product/${product._id}`}>
             <h2 className="flex justify-between items-center ">
